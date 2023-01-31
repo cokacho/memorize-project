@@ -1,15 +1,14 @@
-import {Injectable} from '@nestjs/common';
-import {InjectModel} from "@nestjs/sequelize";
-import {Score} from "../../models/score/score";
-import {CreateScoreDto} from "../../dto/create-score.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Score } from '../../models/score/score';
+import { CreateScoreDto } from '../../dto/create-score.dto';
 
 @Injectable()
 export class ScoresService {
   constructor(
     @InjectModel(Score)
     private readonly scoreModel: typeof Score,
-  ) {
-  }
+  ) {}
 
   create(createScoreDto: CreateScoreDto): Promise<Score> {
     const body = JSON.stringify(createScoreDto);
