@@ -1,0 +1,36 @@
+const DataTypes = require('sequelize').DataTypes
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('scores', {
+      id: {
+        type: DataTypes.INTEGER,
+        field: 'id',
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+        unique: true
+      },
+      points: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+      },
+      idGamesUsers: {
+        type: DataTypes.INTEGER,
+        field: 'id_games_users'
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        field: 'created_at'
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        field: 'updated_at'
+      }
+    })
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('scores');
+  },
+};
