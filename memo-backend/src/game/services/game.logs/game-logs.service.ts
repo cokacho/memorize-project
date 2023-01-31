@@ -1,15 +1,14 @@
-import {Injectable} from '@nestjs/common';
-import {InjectModel} from "@nestjs/sequelize";
-import {GameLog} from "../../models/game.log/game.log";
-import {CreateGameLogDto} from "../../dto/create-game.log.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { GameLog } from '../../models/game.log/game.log';
+import { CreateGameLogDto } from '../../dto/create-game.log.dto';
 
 @Injectable()
 export class GameLogsService {
   constructor(
     @InjectModel(GameLog)
     private readonly historyModel: typeof GameLog,
-  ) {
-  }
+  ) {}
 
   create(createHistoryDto: CreateGameLogDto): Promise<GameLog> {
     const body = JSON.stringify(createHistoryDto);

@@ -1,4 +1,4 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table
 export class Game extends Model {
@@ -8,29 +8,29 @@ export class Game extends Model {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
-    unique: true
+    unique: true,
   })
   id: number;
 
   @Column({
     type: DataType.STRING(),
-    allowNull: false
+    allowNull: false,
   })
   channel: string;
 
   @Column({
     type: DataType.STRING,
-    allowNull: true
+    allowNull: true,
   })
   type: string;
 
   @Column({
-    type: DataType.DATE
+    type: DataType.DATE,
   })
   createdAt: string;
 
   @Column({
-    type: DataType.DATE
+    type: DataType.DATE,
   })
   updatedAt: string;
 }

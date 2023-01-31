@@ -1,4 +1,4 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table
 export class User extends Model {
@@ -8,37 +8,37 @@ export class User extends Model {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
-    unique: true
+    unique: true,
   })
   id: number;
 
   @Column({
     type: DataType.STRING(100),
     allowNull: false,
-    field: 'first_name'
+    field: 'first_name',
   })
   firstName: string;
 
   @Column({
     type: DataType.STRING(100),
-    field: 'last_name'
+    field: 'last_name',
   })
   lastName: string;
 
   @Column({
     type: DataType.STRING(100),
     allowNull: false,
-    field: 'email'
+    field: 'email',
   })
   email: string;
 
   @Column({
-    type: DataType.DATE
+    type: DataType.DATE,
   })
   createdAt: string;
 
   @Column({
-    type: DataType.DATE
+    type: DataType.DATE,
   })
   updatedAt: string;
 
