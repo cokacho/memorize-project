@@ -1,0 +1,2 @@
+# Summary
+"Memory Game" is a classic game where players match pairs of cards with the same image or pattern. The cards are laid face down and players take turns flipping two cards over to see if they match. If they match, they are removed and the player continues, if they don't, they are flipped back over and the turn moves to the next player. The goal is to remember the location of each card and match as many pairs as possible in the shortest amount of time.
