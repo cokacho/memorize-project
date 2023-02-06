@@ -7,7 +7,29 @@ import { UsersService } from '../../services/users/users.service';
 export class UsersController {
   constructor(private readonly service: UsersService) {}
 
-  @Post()
+  /**
+   * Find if the user exist using the email
+   * otherwise create the user and return it
+   *
+   * @param registerUserDto
+   */
+  @Post('register')
+  register(@Body() registerUserDto: CreateUserDto): Promise<User> {
+    return this.service.findOneByEmail(registerUserDto.email)
+      .then((result) => {
+      if (result) {
+        let updateUser = this.service.update({
+          id: result.id,
+          ... registerUserDto
+        });
+
+        return updateUser.then((result) => result[0]);
+      }
+
+      return this.service.create(registerUserDto);
+    })
+  }
+
   create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.service.create(createUserDto);
   }
