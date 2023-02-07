@@ -50,7 +50,6 @@ test('test store set Game User', () => {
   });
 });
 
-
 test('test store set channel', () => {
   let state;
   state = reducers({

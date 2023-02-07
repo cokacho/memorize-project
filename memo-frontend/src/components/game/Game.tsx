@@ -5,15 +5,12 @@ import {RootState} from "../../app/store";
 import Card from "./Card";
 import {useEffect} from "react";
 import Confetti from 'react-confetti'
-import {DefaultCards} from "../../__tests__/mocks/cards.setup";
+import {DefaultCards, getRangeIdCards} from "../../__tests__/mocks/cards.setup";
 import UseDocumentDimensions from "../../hooks/UseDocumentDimensions";
 
 const Game = () => {
   let endGame = false;
-  const cards = DefaultCards;
-
-
-
+  const cards = getRangeIdCards(0,10);
   const cardsState = useSelector((state: RootState) => state.cards);
   const dispatch = useDispatch();
   const selectedCards = useSelector((state: RootState) =>  state.selected_cards);
@@ -21,7 +18,6 @@ const Game = () => {
   const turnedOffCards = cardsState.filter((card) => card.isTurnOver === false);
 
   useEffect(() => {
-    console.log(cardsState)
     if(cardsState.length <= 0) {
       dispatch(shuffleCards([...cards, ...cards]));
     }
