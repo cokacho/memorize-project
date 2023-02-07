@@ -11,7 +11,8 @@ const Card = (props: {
   if (props.isTurnOver) {
     activeCardStyle = 'border-indigo-300'
   }
-  const cardStyles = 'text-black text-center m-2 p-4 border-2 text-xl rounded cursor-pointer w-32 ' + activeCardStyle;
+  const cardStyles = 'flex text-black text-center m-2 p-2 border-2 text-xl' +
+    ' rounded cursor-pointer w-40 h-40 justify-center items-center' + activeCardStyle;
   const dispatcher = useDispatch();
 
   const clickHandler = () => {
@@ -29,9 +30,9 @@ const Card = (props: {
         className={cardStyles}
       >
         {props.isTurnOver ?
-          (<div className={''}>{props.type}</div>)
+          (<img src={props.image} className={''} />)
           :
-          (<div>?</div>)
+          (<div className={''} >?</div>)
         }
       </div>
 
